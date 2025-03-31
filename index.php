@@ -1,12 +1,11 @@
 <?php
 
-require_once __DIR__ . '/lib/database.php';
 require_once __DIR__ . '/models/Task.php';
 
+$taskRepo = new TaskRepository();
 
-$db = new DatabaseConnection();
-
-$tasks = $db->getConnection()->query('SELECT * FROM tasks')->fetchAll();
-
-var_dump($tasks);
-
+$task = new Task();
+$task->title = 'Titre';
+$task->description = 'Description';
+$task->status = 'En cours';
+// $taskRepo->create($task);
