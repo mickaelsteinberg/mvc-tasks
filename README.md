@@ -70,4 +70,9 @@ Explication du bindParam
 - Déplacer la classe `TaskRepository` dans son propre dossier (`models/repositories`)
    - nouveau fichier `models/repositories/TaskRepository.php`
 - Créer la vue qui affiche toutes les tâches sur la page index.php.
+   - nouveau fichier `views/home.php` qui boucle sur les `$tasks` de l'`index.php`
 - Créer le `routeur` qui va permettre de se déplacer de page en page. 
+   - Défini un paramètre d'URL ($_GET) `action` et qui a comme valeur `view` et paramètre `id`
+- Créer la vue qui affiche une seule tâche
+   - nouveau fichier `views/view-task.php` qui affiche le détail d'une tâche
+- Ajouter un système de templates avec `header.php` et `footer.php`

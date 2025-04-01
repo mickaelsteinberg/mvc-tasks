@@ -1,31 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des tâches</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="?">📋 Gestion des Tâches</a>
-            <div class="" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="?">🏠 Accueil</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?php require_once __DIR__ . '/templates/header.php'; ?>
 
-    <div class="container mt-5">
-        <h2 class="mb-4">📋 <?php echo $task->getTitle() ?></h2>
+<h2 class="mb-4">📋 Détail de la tâche</h2>
 
-        
-        
-    </div>
+<p><strong>Titre : </strong> <?= $task->getTitle() ?></p>
+<p><strong>Description : </strong> <?= $task->getDescription() ?></p>
+<p><strong>Statut : </strong> <?= $task->getStatus() ?></p>
+<p><strong>Créée le : </strong> <?= $task->getCreatedAt() ?></p>
+<p><strong>Dernière mise à jour : </strong> <?= $task->getUpdatedAt() ?></p>
 
-</body>
-</html>
+<a href="?" class="btn btn-secondary">Retour à la liste</a>
+
+<?php require_once __DIR__ . '/templates/footer.php'; 
