@@ -20,6 +20,15 @@ switch ($action) {
     case 'store':
         $taskController->store();
         break;
+    case 'edit':
+        $taskController->edit($id);
+        break;
+    case 'update':
+        $taskController->update();
+        break;
+    case 'delete':
+        $taskController->delete($id);
+        break;
     default:
         $taskController->forbidden();
         break;

@@ -14,10 +14,11 @@ class TaskRepository
 
     public function getTasks(): array
     {
-        $statement = $this->connection->getConnection()->query('SELECT * FROM tasks');
-        $result = $statement->fetchAll();
+        $statement = $this->connection->getConnection()->prepare('SELECT * FROM tasks');
+        $statement->execute();
+
         $tasks = [];
-        foreach ($result as $row) {
+        foreach ($statement as $row) {
             $task = new Task();
             $task->setId($row['id']);
             $task->setTitle($row['title']);

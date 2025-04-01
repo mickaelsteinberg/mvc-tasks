@@ -7,19 +7,22 @@ Création des dossiers et fichiers de base
 ```
 /mvc-tasks
 |- /controllers
-   |- TaskController.php 
+|  |- TaskController.php 
 |- /lib
-   |- database.php
+|  |- database.php
 |- /models
-   |- /repositories
-      |- TaskRepository.php
-   |- Task.php
+|  |- /repositories
+|  |  |- TaskRepository.php
+|  |- Task.php
 |- /views
-   |- /templates
-      |- footer.php
-      |- header.php
-   |- home.php
-   |- view-tasks.php
+|  |- /templates
+|  |  |- footer.php
+|  |  |- header.php
+|  |- 404.php
+|  |- create.php
+|  |- edit.php
+|  |- home.php
+|  |- view-tasks.php
 |- index.php
 |- README.md
 ```
