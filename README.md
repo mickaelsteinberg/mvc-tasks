@@ -63,6 +63,11 @@ Explication du bindParam
 ```
 
 - Ecrire les getters et les setters de la classe `Task`
+   - passer les attributs de la classe en privé
+   - créer les getters et setters de chaque attribut de la classe `Task`
+   - dans le `TaskRepository`, modifier l'appel attributs pour passer aux getters et setters
+   - dans les setters de `title`, `description` et `status`, mettre les `htmlspecialchars` pour sécuriser les données en paramètre
 - Déplacer la classe `TaskRepository` dans son propre dossier (`models/repositories`)
+   - nouveau fichier `models/repositories/TaskRepository.php`
 - Créer la vue qui affiche toutes les tâches sur la page index.php.
 - Créer le `routeur` qui va permettre de se déplacer de page en page. 
