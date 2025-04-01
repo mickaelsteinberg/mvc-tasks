@@ -4,16 +4,25 @@
 
 Création des dossiers et fichiers de base
 
+```
 /mvc-tasks
 |- /controllers
-   |-
+   |- TaskController.php 
 |- /lib
    |- database.php
 |- /models
+   |- /repositories
+      |- TaskRepository.php
    |- Task.php
 |- /views
+   |- /templates
+      |- footer.php
+      |- header.php
+   |- home.php
+   |- view-tasks.php
 |- index.php
 |- README.md
+```
 
 ## Création du modèle Task
 
@@ -76,3 +85,9 @@ Explication du bindParam
 - Créer la vue qui affiche une seule tâche
    - nouveau fichier `views/view-task.php` qui affiche le détail d'une tâche
 - Ajouter un système de templates avec `header.php` et `footer.php`
+- Ajouter la classe `TaskController` dans le dossier `controllers`
+- Modifier le routeur pour le rendre disponible aux `action`
+   - `view` affiche une tâche
+   - `create` affiche le formulaire de création
+   - `index` affiche la liste des tâches
+   - `store` enregistre la tâche dans la base de données 

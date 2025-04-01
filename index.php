@@ -1,18 +1,26 @@
 <?php
 
-require_once __DIR__ . '/models/repositories/TaskRepository.php';
+require_once __DIR__ . '/controllers/TaskController.php';
 
-$taskRepo = new TaskRepository();
+$taskController = new TaskController();
 
-if (isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id'])) {
-    
-    $task = $taskRepo->getTask($_GET['id']);
-    require_once __DIR__ . '/views/view-task.php';
+$action = $_GET['action'] ?? 'index'; // Si $_GET['action'] est null ou vide, alors on renvoi index. Sinon on renvoi $_GET['action']
+$id = $_GET['id'] ?? null;
 
-} else {
-    
-    $tasks = $taskRepo->getTasks();
-    require_once __DIR__ . '/views/home.php';    
-    
+switch ($action) {
+    case 'view':
+        $taskController->show($id);
+        break;
+    case 'create':
+        $taskController->create();
+        break;
+    case 'index':
+        $taskController->home();
+        break;
+    case 'store':
+        $taskController->store();
+        break;
+    default:
+        $taskController->forbidden();
+        break;
 }
-
