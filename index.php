@@ -4,11 +4,15 @@ require_once __DIR__ . '/models/repositories/TaskRepository.php';
 
 $taskRepo = new TaskRepository();
 
-// $task = new Task();
-// $task->setTitle('');
-// $task->setDescription('Description');
-// $task->setStatus('En cours');
-// $taskRepo->create($task);
+if (isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id'])) {
+    
+    $task = $taskRepo->getTask($_GET['id']);
+    require_once __DIR__ . '/views/view-task.php';
 
-$task = $taskRepo->getTask(9);
-echo $task->getTitle();
+} else {
+    
+    $tasks = $taskRepo->getTasks();
+    require_once __DIR__ . '/views/home.php';    
+    
+}
+
