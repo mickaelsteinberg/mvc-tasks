@@ -21,14 +21,18 @@ class TaskController
 
     public function show(int $id) 
     {
-        $task = $this->taskRepository->getTask($id);
+        if (isConnected()) {
+            $task = $this->taskRepository->getTask($id);
 
-        require_once __DIR__ . '/../views/view-task.php';
+            require_once __DIR__ . '/../views/view-task.php';
+        }
     }
 
     public function create()
     {
-        require_once __DIR__ . '/../views/create.php';
+        if (isAdmin()) {
+            require_once __DIR__ . '/../views/create.php';
+        }
     }
 
     public function store()
@@ -40,24 +44,30 @@ class TaskController
         $this->taskRepository->create($task);
 
         header('Location: ?');
+        exit;
     }
 
     public function edit(int $id)
     {
-        $task = $this->taskRepository->getTask($id);
-        require_once __DIR__ . '/../views/edit.php';
+        if (isAdmin()) {
+            $task = $this->taskRepository->getTask($id);
+            require_once __DIR__ . '/../views/edit.php';
+        }
     }
 
     public function update()
     {
-        $task = new Task();
-        $task->setId($_POST['id']);
-        $task->setTitle($_POST['title']);
-        $task->setDescription($_POST['description']);
-        $task->setStatus($_POST['status']);
-        $this->taskRepository->update($task);
+        if (isAdmin()) {
+            $task = new Task();
+            $task->setId($_POST['id']);
+            $task->setTitle($_POST['title']);
+            $task->setDescription($_POST['description']);
+            $task->setStatus($_POST['status']);
+            $this->taskRepository->update($task);
 
-        header('Location: ?');
+            header('Location: ?');
+            exit;
+        }
     }
 
     public function delete(int $id)
@@ -65,6 +75,7 @@ class TaskController
         $this->taskRepository->delete($id);
 
         header('Location: ?');
+        exit;
     }
 
     public function forbidden()

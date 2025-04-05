@@ -18,9 +18,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?action=create">⊕ Nouvelle tâche</a>
                     </li>
+                    <?php if (isset($_SESSION['user_id'], $_SESSION['role'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=logout">Déconnexion</a>
+                    </li>
+                    <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=login">Connexion</a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container mt-5">
+
+    <?php if (isset($_SESSION['flash_message'])): ?>
+        <div class="alert alert-warning" role="alert">
+            <?= $_SESSION['flash_message'] ?>
+        </div>
+    <?php
+        unset($_SESSION['flash_message']);
+        endif; 

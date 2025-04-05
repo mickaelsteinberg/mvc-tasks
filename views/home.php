@@ -2,6 +2,8 @@
         
 <h2 class="mb-4">📋 Liste des tâches</h2>
 
+<h3><?= count($tasks) ?> tâches</h3>
+
 <table class="table table-striped table-bordered">
     <thead class="table-dark">
         <tr>

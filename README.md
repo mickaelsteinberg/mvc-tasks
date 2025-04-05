@@ -94,3 +94,15 @@ Explication du bindParam
    - `create` affiche le formulaire de création
    - `index` affiche la liste des tâches
    - `store` enregistre la tâche dans la base de données 
+
+### Authentification 
+
+- Créer une table `users`
+- Créer un model `User` avec getters et setters
+- Créer le repository `UserRepository` qui va récupérer les infos d'un utilisateur
+   - Créer la fonction `getUserByUsername`
+- Créer le controller `AuthController` qui va gérer les routes de l'authentification
+- Dans `index.php`, utiliser le `AuthController` pour appeler la première vue `login.php`
+- Dans le formulaire de connexion de la vue `login.php`, mettre l'action vers `doLogin`
+- Dans `index.php`, créer la nouvelle route vers doLogin 
+- Dans `AuthController.php`, créer la méthode pour connecter l'utilisateur 
