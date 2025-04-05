@@ -106,3 +106,14 @@ Explication du bindParam
 - Dans le formulaire de connexion de la vue `login.php`, mettre l'action vers `doLogin`
 - Dans `index.php`, créer la nouvelle route vers doLogin 
 - Dans `AuthController.php`, créer la méthode pour connecter l'utilisateur 
+
+
+# **Sessions vs Cookies : Les différences et applications**  
+
+| Critère | **Sessions (`$_SESSION`)** | **Cookies (`$_COOKIE`)** |
+|---------|-----------------------------|---------------------------|
+| 📍 **Lieu de stockage** | Serveur (mémoire/RAM ou fichier) | Navigateur de l’utilisateur |
+| ⏳ **Durée de vie** | Jusqu’à la fermeture du navigateur (par défaut) | Définie par l’expiration du cookie |
+| 🔒 **Sécurité** | Plus sécurisé (pas accessible directement depuis JS) | Moins sécurisé (JS peut les lire) |
+| 🎯 **Utilisation typique** | Authentification, panier, préférences temporaires | Suivi utilisateur, préférences persistantes |
+| 🎭 **Personnalisation** | Basé sur l’utilisateur (stocké côté serveur) | Utilisé pour des réglages sur plusieurs sessions |
